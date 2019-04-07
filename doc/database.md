@@ -8,8 +8,8 @@
 CREATE TABLE `fund_value_160505` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL COMMENT '日期',
-  `total_value` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '累计净值, 单位：分',
-  `current_value` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '当前净值, 单位：分',
+  `total_value` float(10.4) NOT NULL DEFAULT '0' COMMENT '累计净值, 单位：元',
+  `current_value` float(10.4) NOT NULL DEFAULT '0' COMMENT '当前净值, 单位：元',
   `is_del` tinyint(2) NOT NULL DEFAULT '0' ,
   `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '刷新时间',
