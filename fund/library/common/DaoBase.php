@@ -1,6 +1,6 @@
 <?php
 class Common_DaoBase {
-    private $_db = null;
+    protected $_db = null;
     protected $_table = null;
 
     /*
