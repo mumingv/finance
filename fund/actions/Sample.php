@@ -13,27 +13,36 @@ class Action_Sample extends Ap_Action_Abstract {
 	 *
 	 **/
 	public function execute() {
+		Bd_Log::notice('get request');
+		$arrRequest = Saf_SmartMain::getCgi();
+		Bd_Log::notice('msg: '.json_encode($arrRequest));
+        $retData = array(
+            "code" => 0,
+            "msg" => "ad"
+        );
+        echo json_encode($retData);
+
 		//1. check if user is login as needed
-		$arrUserinfo = Saf_SmartMain::getUserInfo();
-		if (empty($arrUserinfo)) {
-			//ouput error
-		}
+		//$arrUserinfo = Saf_SmartMain::getUserInfo();
+		//if (empty($arrUserinfo)) {
+		//	//ouput error
+		//}
 
 		//2. get and validate input params
-		$arrRequest = Saf_SmartMain::getCgi();
-		$arrInput = $arrRequest['get'];
-		if(!isset($arrInput['id'])){
-			//output error
-		}
-		Bd_Log::debug('request input', 0, $arrInput);
+		//$arrRequest = Saf_SmartMain::getCgi();
+		//$arrInput = $arrRequest['get'];
+		//if(!isset($arrInput['id'])){
+		//	//output error
+		//}
+		//Bd_Log::debug('request input', 0, $arrInput);
 
 		//3. call PageService
-		$objServicePageSample = new Service_Page_Sample();
-		$arrPageInfo = $objServicePageSample->execute($arrInput);
+		//$objServicePageSample = new Service_Page_Sample();
+		//$arrPageInfo = $objServicePageSample->execute($arrInput);
 
 
 		//4. chage data to out format
-		$arrOutput = $arrPageInfo;
+		//$arrOutput = $arrPageInfo;
 
 		//5. build page
 		// smarty模板，以下渲染模板的代码依赖于提供一个tpl模板
@@ -42,11 +51,11 @@ class Action_Sample extends Ap_Action_Abstract {
 		//$tpl->display('en/newapp/index.tpl');
 
 		//这里直接输出,作为示例
-		$strOut = $arrOutput['data'];
-		echo $strOut;
+		//$strOut = $arrOutput['data'];
+		//echo $strOut;
 
 		//notice日志信息打印，只需要添加日志信息，saf会自动打一条log
-		Bd_Log::addNotice('out', $arrOutput);
+		//Bd_Log::addNotice('out', $arrOutput);
 
 	}
 
